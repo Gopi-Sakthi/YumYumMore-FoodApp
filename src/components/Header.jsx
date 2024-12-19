@@ -10,7 +10,7 @@ const Header = () =>{
     return (
       <div className="flex justify-between items-center border bg-blue-200 font-medium h-[100px]">
         <div>   
-             <img className="w-24 m-1 p-2" src="/assets/onepiece.png" alt="logo" />
+             <img className="w-24 m-1 p-2" src="/assets/logo.png" alt="logo" />
         </div>
         <div  className="pr-20">
             <ul className="flex justify-evenly gap-28">
