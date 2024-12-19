@@ -38,7 +38,7 @@ const Body= () => {
     const handleTopResOnClick=() =>
       {
           const topRes = restaurant.filter( 
-              (res)=>res.info.avgRating > 4.5
+              (res)=>res.info.avgRating > 4.4
           );
           setSearchRestaurant(topRes)
       };
@@ -59,10 +59,10 @@ const Body= () => {
 
 return restaurant.length===0 ? <Shimmer/>:(
 
-      <div className="m-2 h-auto]">
+      <div className="m-2 min-h-[70vh]">
         <div className="flex justify-around px-5 items-center bg-amber-50">
             <div className="search">
-                <input className="border border-black h-10 p-2 rounded-lg" type="text" value={search} onChange={handleOnChange}/>
+                <input className="border border-black h-10 p-2 rounded-lg" type="text" value={search} onChange={handleOnChange} placeholder="search favourite restaurant"/>
                 <button className="px-4 py-2 m-2 bg-green-200 rounded-lg"
                 onClick={handleSearchOnClick}>Search</button>
             </div>

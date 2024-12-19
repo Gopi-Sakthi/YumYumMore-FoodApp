@@ -10,23 +10,29 @@ const ItemList = ({ items }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="">
       {items.map((item) => (
-        <div key={item.card.info.id} className="border-b-2 border-gray-200 flex justify-between py-4">
-          <div className="w-9/12 px-4">
-            <p className="text-lg font-medium py-2 text-center">
+        <div
+          key={item.card.info.id}
+          className="border-b-2 border-gray-200 flex justify-between py-4"
+        >
+          <div className="px-4 w-9/12">
+            <p className="text-lg font-medium py-2">
               {item.card.info.name} - Rs.
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </p>
-            {/* Description */}
             <p className="text-sm">
-              {item.card.info.description.length < 25
+              {item.card.info.description &&
+              item.card.info.description.length < 25
                 ? item.card.info.description
-                : item.card.info.description.split(" ").slice(0, 25).join(" ") + "..."}
+                : item.card.info.description
+                ? item.card.info.description.split(" ").slice(0, 25).join(" ") +
+                  "..."
+                : "No description available."}
             </p>
           </div>
-          <div className="p-2 m-2 flex flex-col  items-center justify-between">
-            <div className="relative w-full sm:w-auto">
+          <div className="p-2 m-2 flex justify-between w-3/12">
+            <div className="mt-20 ml-10 absolute">
               <button
                 className="p-[3px] border bg-green-400 text-white hover:bg-green-600 rounded-xl"
                 onClick={() => handleAddItem(item)}
@@ -36,7 +42,7 @@ const ItemList = ({ items }) => {
             </div>
             <div className="">
               <img
-                className="h-[140px] rounded-xl object-cover"
+                className="h-[100px] w-28  rounded-xl"
                 src={FOOD_URL + item.card.info.imageId}
                 alt="No image"
               />
